@@ -1,5 +1,6 @@
 //https://programmers.co.kr/learn/courses/30/lessons/12916
 //나는 이런 게 재밌네
+//사실 gap 변수는 넣지 않고 'P' 'Y'로 해도 되지만 뭔가 이게 더 재밌음
 #include <string>
 #include <iostream>
 using namespace std;
