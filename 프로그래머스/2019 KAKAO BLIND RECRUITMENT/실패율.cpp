@@ -18,7 +18,7 @@ vector<int> solution(int N, vector<int> stages) {
     
     int size = stages.size();
     for(int i : stages){
-        nclear[i]++;
+        nclear[i]++; //스테이지에 도달했지만 성공하지 못한 플레이어 수
        for(int j = 1; j <= i; j++)
            count1[j]++; //스테이지에 도달한 플레이어 수, 제한사항 5도 해결
     }
