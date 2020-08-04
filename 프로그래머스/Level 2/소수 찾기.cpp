@@ -5,7 +5,6 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <iostream>
 using namespace std;
 int arr[10000000];
 bool cmp(char a, char b){
@@ -41,7 +40,6 @@ int solution(string numbers) {
     int size = vec.size();
     
     for(int i = 0; i < size; i++){
-        cout<<vec[i]<<endl;
         if(arr[vec[i]] == 0 && vec[i] > 1)
             answer++;
     }
