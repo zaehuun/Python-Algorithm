@@ -39,13 +39,7 @@ int solution(string s) {
                 tmp += vec[i];
             }
             
-            
-        }
-       
-        
-        //cout<<tlen<<endl;
-        if(tlen < answer)
-            answer = tlen;
+
         size++;
     }
     return answer;
