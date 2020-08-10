@@ -2,44 +2,50 @@
 
 #include <string>
 #include <vector>
-#include <stack>
 #include <iostream>
 using namespace std;
 
 int solution(string s) {
-    int answer = 0;
-    int len = s.length();
-    int max = len / 2;
-    int size = 1;
-    answer = len;
-    while(size <= max){
+    int answer = s.length();
 
-        vector<string> vec;
-        string tmp = "";
+    int max = s.length() / 2;
+    int size = 1;
+
+    while(size <= max){
+        vector<string> v;
+        int cnt = 0;
+         if (s.length() % size == 0) {
+             cnt = s.length() / size;
+        }
+         else {
+            cnt = s.length() / size + 1;
+        }
+    
+        for (int i = 0; i < cnt; i++) {
+            v.push_back(s.substr(i * size, size));
+         }
         
-        for(int i = 0; i < len; i+=size){
-            string tmp = s.substr(i, size);
-            //cout<<tmp<<endl;
-            vec.push_back(tmp);
+   
+        string tmp = "";
+        for(int i = 0; i < cnt; i++){
+            int j;
+            for(j = i + 1; j < cnt; j++){
+                if(v[i] != v[j])
+                    break;
+            }
+            
+            if(j == i + 1)
+                tmp += v[i];
+            else{
+                tmp = tmp + to_string(j-i) + v[i];
+                i = j - 1;
+            }
+            
         }
         
-        int vsize = vec.size();
-        
-        for(int i = 0; i < vsize; i++){
-            
-            int j = i + 1;
-            ///////////////
-            if(vec[i] == vec[j]){
-                while(vec[i]!=vec[j]){
-                    j++;
-                }
-            }
-            //////////////////
-            else{
-                tmp += vec[i];
-            }
-            
-
+        if (tmp.length() < answer)
+            answer = tmp.length();
+       
         size++;
     }
     return answer;
