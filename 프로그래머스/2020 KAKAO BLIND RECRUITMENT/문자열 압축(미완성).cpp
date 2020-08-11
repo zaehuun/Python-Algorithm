@@ -2,7 +2,6 @@
 
 #include <string>
 #include <vector>
-#include <iostream>
 using namespace std;
 
 int solution(string s) {
@@ -11,25 +10,22 @@ int solution(string s) {
     int max = s.length() / 2;
     int size = 1;
 
+    int len = s.length();
+    
     while(size <= max){
         vector<string> v;
         int cnt = 0;
-         if (s.length() % size == 0) {
-             cnt = s.length() / size;
-        }
-         else {
-            cnt = s.length() / size + 1;
-        }
+         
     
-        for (int i = 0; i < cnt; i++) {
-            v.push_back(s.substr(i * size, size));
-         }
-        
-   
+       for(int i = 0; i < len; i+=size)
+            v.push_back(s.substr(i, size));
+
+
         string tmp = "";
-        for(int i = 0; i < cnt; i++){
+        int vsize = v.size();
+        for(int i = 0; i < vsize; i++){
             int j;
-            for(j = i + 1; j < cnt; j++){
+            for(j = i + 1; j < vsize; j++){
                 if(v[i] != v[j])
                     break;
             }
