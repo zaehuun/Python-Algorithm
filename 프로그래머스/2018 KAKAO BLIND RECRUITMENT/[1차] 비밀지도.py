@@ -18,3 +18,17 @@ def solution(n, arr1, arr2):
             tmp = tmp >> 1
         a.append(st)
     return a
+
+//////////////////////////////////////////////
+def solution(n, arr1, arr2):
+    answer = []
+    
+    for i, j in zip(arr1, arr2):
+        tmp = i | j
+        tmp = str(bin(tmp)[2:])
+        if len(tmp) < n:
+            tmp = '0' * (n-len(tmp)) + tmp
+        tmp = tmp.replace('1','#').replace('0',' ')
+        answer.append(tmp)
+    
+    return answer
