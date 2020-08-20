@@ -8,7 +8,6 @@ input = sys.stdin.readline
 dx = (-1, -1, -1, 0, 1, 1, 1, 0)
 dy = (-1, 0, 1, 1, 1, 0, -1, -1)
 
-
 while True:
     w, h = map(int,input().split())
 
