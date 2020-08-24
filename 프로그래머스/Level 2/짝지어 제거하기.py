@@ -1,5 +1,5 @@
 //https://programmers.co.kr/learn/courses/30/lessons/12973?language=python3
-
+//시간복잡도 확인
 def solution(s):
     answer = 0
 
