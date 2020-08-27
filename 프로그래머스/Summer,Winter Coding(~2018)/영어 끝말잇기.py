@@ -10,14 +10,11 @@ def solution(n, words):
     
     used.append(words[0])
     
-    before = words[0][-1]
-    
     brek = False
     for i in range(1, len(words)):
-        if before == words[i][0]: # 처음 마지막 같으면
+        if used[-1][-1] == words[i][0]: # 처음 마지막 같으면
             if words[i] not in used: #중복이 아니라면
                 used.append(words[i]) #사용된 리스트에 넣고
-                before = words[i][-1] #마지막 글자 초기화
             else: #처음 마지막 같은데 중복이라면
                 answer.append(i % n + 1)
                 answer.append(i//n + 1)
