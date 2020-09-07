@@ -1,6 +1,7 @@
 //https://programmers.co.kr/learn/courses/30/lessons/17686#
 //cmp함수는 funtools 사용해보려고 짜본건데 lambda랑 시간 비교해보니 역시 내가 짠 코드는 확실히 느리다
 //존재하는 것들을 사용하는게나은거같다...
+//re.split()에서 ([0-9]+)를 하면 숫자 포함, () 없으면 숫자 미포함
 import re
 
 '''def cmp(a,b):
