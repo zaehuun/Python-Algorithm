@@ -13,11 +13,11 @@ while st <= end:
 
     if total == m:
         answer = total
-        st += 1
+        st = mid + 1
     elif total > m:
-        st += 1
+        st = mid + 1
     else: #total < m
-        end -= 1
+        end = mid - 1
 
 print(answer)
 
