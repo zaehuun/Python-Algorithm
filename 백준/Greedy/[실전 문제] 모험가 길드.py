@@ -1,5 +1,3 @@
-//답안 코드는 되게 간단한데 너무 복작하게 풀었다.
-
 n = int(input())
 member = list(map(int,input().split()))
 member.sort()
@@ -8,21 +6,10 @@ member.sort()
 print(member)
 
 answer = 0
-idx = 0
-while idx < len(member):
-    cnt = 1
-    val = member[idx]
-    print(idx,val)
-    if cnt == val:
+cnt = 0
+for i in member:
+    cnt += 1 #현재 i 멤버를 포함한 그룹 수
+    if cnt == i:
         answer+=1
-        idx+=1
-        continue
-    else:
-        if val > len(member[idx+1:]):
-            break
-        while cnt != val:
-            cnt+=1
-        idx += cnt
-        answer+=1
-        
+        cnt = 0
 print(answer)
