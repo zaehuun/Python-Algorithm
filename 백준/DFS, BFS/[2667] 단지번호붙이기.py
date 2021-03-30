@@ -1,44 +1,45 @@
 //https://www.acmicpc.net/problem/2667
 
 
-dx = [-1, 1, 0, 0]
-dy = [0, 0, -1, 1]
+from collections import deque
 
+N = int(input())
 
-n = int(input())
-arr = [[int(a) for a in input()] for i in range(n)]
-visit = [[False] * n for _ in range(n)]
-cnt = 1
+arr = [list(input()) for _ in range(N)]
+check = [[False] * N for _ in range(N)]
 
-def dfs(x, y, cn):
-    visit[x][y] = True
-    arr[x][y] = cn
-    for i in range(4):
-        nx = x + dx[i]
-        ny = y + dy[i]
+dx = [-1,1,0,0]
+dy = [0,0,1,-1]
 
-        if nx < 0 or ny < 0 or nx >= n or ny >= n:
-            continue
-        if arr[nx][ny] == 1 and not visit[nx][ny]:
+answer = []
+cnt = 0
+def bfs(x,y):
+    tmp = 1
+    check[x][y] = True
 
-            arr[nx][ny] = cn
-            dfs(nx,ny,cn)
-            
+    queue = deque()
+    queue.append((x,y))
 
+    while queue:
+        cx, cy = queue.popleft()
 
-for i in range(n):
-    for j in range(n):
-        if arr[i][j] == 1 and not visit[i][j]:
-            dfs(i,j,cnt)
+        for i in range(4):
+            tx = cx + dx[i]
+            ty = cy + dy[i]
+
+            if -1 < tx < N and -1 < ty < N and arr[tx][ty] == '1' and check[tx][ty] == False:
+                check[tx][ty] = True
+                queue.append((tx,ty))
+                tmp += 1
+    answer.append(tmp)
+
+for i in range(N):
+    for j in range(N):
+        if arr[i][j] == '1' and check[i][j] == False:
+            bfs(i,j)
             cnt += 1
-cnt -= 1
-count = [0 for i in range(cnt)]
+answer.sort()
 
-for i in range(n):
-    for j in range(n):
-        if arr[i][j] != 0:
-            count[arr[i][j]-1] += 1
-print(cnt)
-count.sort()
-for i in range(len(count)):
-    print(count[i])
+answer = [cnt] + answer
+for i in range(len(answer)):
+    print(answer[i])
