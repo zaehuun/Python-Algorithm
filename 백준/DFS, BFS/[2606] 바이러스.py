@@ -1,27 +1,24 @@
 //https://www.acmicpc.net/problem/2606
 
-n = int(input())
-m = int(input())
-
-arr = [[] for _ in range(n+1)]
-check = [0] * (n+1)
-
-for i in range(m):
-    st, end = map(int,input().split())
-    arr[st].append(end)
-    arr[end].append(st)
-
 answer = 0
 
-def dfs(i):
-    global answer
-    check[i] = 1
+N = int(input())
+M = int(input())
+arr = [[] for _ in range(N+1)]
+check = [False for _ in range(N+1)]
 
-    for j in arr[i]:
-        if not check[j]:
+for i in range(M):
+    a, b = map(int,input().split())
+    arr[a].append(b)
+    arr[b].append(a)
+def dfs(idx):
+    global answer
+    check[idx] = True
+
+    for i in arr[idx]: #[2,5]
+        if check[i] == False:
             answer += 1
-            dfs(j)
+            dfs(i)
 
 dfs(1)
-
 print(answer)
