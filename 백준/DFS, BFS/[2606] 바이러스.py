@@ -1,7 +1,6 @@
 //https://www.acmicpc.net/problem/2606
 
 answer = 0
-
 N = int(input())
 M = int(input())
 arr = [[] for _ in range(N+1)]
