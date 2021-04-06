@@ -1,4 +1,6 @@
 #https://www.acmicpc.net/problem/2798
+#브루트 포스인 경우 보통 입력 값의 크기가 많지 않은 거 같다.
+#이번 경우에도 n이 최대 100이다.
 
 N, M = map(int,input().split())
 arr = list(map(int,input().split()))
