@@ -1,6 +1,6 @@
 from collections import deque
 def solution(priorities, location):
-    answer = 1
+    answer = 0
     q = deque()
     for i in range(len(priorities)):
         q.append((priorities[i],i))
@@ -16,8 +16,9 @@ def solution(priorities, location):
         if t:
             continue
         else:
+            answer += 1
             if p[1] == location:
                 return answer
-            answer += 1
+            
 
     return answer
