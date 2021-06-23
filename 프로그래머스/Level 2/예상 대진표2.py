@@ -10,12 +10,12 @@ def solution(n,a,b):
         if abs(a-b) == 1 and (a//2 != b//2):
             return answer
         
-        if a | 1:
+        if a & 1:
             a = (a+1)//2
         else:
             a = a//2
         
-        if b | 1:
+        if b & 1:
             b = (b+1)//2
         else:
             b = b//2
